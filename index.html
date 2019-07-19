@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ChatBox</title>
+    <link rel="stylesheet" type="text/css" href="chatbox.css">
+</head>
+
+<body>
+    <template id="chatbox">
+        <div class="chatbox-wrapper" chatboxid>
+            <div class="chatbox__header">
+                <div class="chatbox__earpiece"></div>
+                <div class="chatbox__sensor"></div>
+                <div class="chatbox__camera"></div>
+            </div>
+            <div class="chatbox__body">
+                <h2 class="chatbox__heading-id"></h2>
+                <h4 class="chatbox__msg-title">Messages</h4>
+                <div class="chatbox__msg-container"></div>
+                <input class="chatbox__input" type="text" placeholder="Type a message" minlength="1" />
+                <div>
+                    <button class="chatbox__send-btn" type="button">SEND</button>
+                    <button class="chatbox__delete-btn" type="button"></button>
+                </div>
+            </div>
+            <div class="chatbox__footer"></div>
+        </div>
+    </template>
+    <div class="alertbox">
+        <div class="alertbox_wrapper">
+            <span class="alertbox__close_btn">&times;</span>
+            <div class="alertbox__text">asdf</div>
+        </div>
+    </div>
+    <main>
+        <div class="content_wrapper">
+            <h1 class="main_heading">Chatbox</h1>
+            <button class="add_chatbox" type="button">Add ChatBox</button>
+            <div class="chatboxes_container"></div>
+        </div>
+    </main>
+    <script src="chatbox.js"></script>
+</body>
+
+</html>

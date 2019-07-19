@@ -1,0 +1,342 @@
+:root {
+    --white: #fff;
+    --greyish: #525e67;
+}
+
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("assets/font/Montserrat-Medium.ttf");
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat-Medium", sans-serif;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* Template Chatbox styles */
+
+.chatbox-wrapper {
+    margin-bottom: 20px;
+}
+
+.chatbox__header,
+.chatbox__footer {
+    display: block;
+    width: 100%;
+    height: 35px;
+    background-color: var(--greyish);
+}
+
+.chatbox__header {
+    border-radius: 25px 25px 0 0;
+    position: relative;
+}
+
+.chatbox__footer {
+    border-radius: 0 0 25px 25px;
+}
+
+.chatbox__earpiece,
+.chatbox__sensor,
+.chatbox__camera {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.chatbox__earpiece {
+    width: 30px;
+    height: 7px;
+    left: 50%;
+}
+
+.chatbox__sensor {
+    width: 20px;
+    height: 7px;
+    right: 30%;
+}
+
+.chatbox__camera {
+    width: 10px;
+    height: 10px;
+    right: 25%;
+}
+
+.chatbox__body {
+    background: #f0f5f9;
+    padding: 20px;
+    min-width: 250px;
+    position: relative;
+}
+
+.chatbox__body::before,
+.chatbox__body::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: var(--greyish);
+}
+
+.chatbox__body::before {
+    left: 0;
+}
+
+.chatbox__body::after {
+    right: 0;
+}
+
+.chatbox__heading-id {
+    text-align: center;
+    margin: 0 0 15px;
+}
+
+.chatbox__msg-title {
+    margin: 0 0 15px;
+}
+
+.chatbox__input {
+    padding: 7px 10px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    margin: 15px 0;
+}
+
+.chatbox__input::-webkit-input-placeholder {
+    color: var(--greyish);
+}
+
+.chatbox__input--invalid {
+    background: #ffe1e1;
+}
+
+.chatbox__send-btn {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: var(--greyish);
+    color: #f0f5f9;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.chatbox__msg-container {
+    min-height: 50px;
+    max-height: 190px;
+    width: 210px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chatbox__msg-self,
+.chatbox__msg-others,
+.chatbox__msg-self--selected,
+.chatbox__msg-others--selected {
+    padding: 5px 15px;
+    margin: 10px 20px;
+    position: relative;
+    background-color: var(--white);
+    border-radius: 10px;
+}
+
+.chatbox__msg-others,
+.chatbox__msg-others--selected {
+    border-top-left-radius: 0;
+}
+
+.chatbox__msg-self,
+.chatbox__msg-self--selected {
+    border-top-right-radius: 0;
+}
+
+.chatbox__msg-self::after,
+.chatbox__msg-others::before,
+.chatbox__msg-self--selected::after,
+.chatbox__msg-others--selected::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+}
+
+.chatbox__msg-others::before {
+    left: -18px;
+    border: 9px solid transparent;
+    border-top: 9px solid #fff;
+    border-right: 9px solid #fff;
+}
+
+
+.chatbox__msg-self::after {
+    right: -14px;
+    border: 7px solid transparent;
+    border-top: 7px solid #fff;
+    border-left: 7px solid #fff;
+}
+
+.chatbox__msg-others--selected::before {
+    left: -18px;
+    border: 9px solid transparent;
+    border-top: 9px solid rgb(2,179,228);
+    border-right: 9px solid rgb(2,179,228);
+}
+
+.chatbox__msg-self--selected::after {
+    right: -14px;
+    border: 7px solid transparent;
+    border-top: 7px solid rgb(2,179,228);
+    border-left: 7px solid rgb(2,179,228);
+}
+
+.chatbox__msg-others--selected,
+.chatbox__msg-self--selected {
+    background-color: rgb(2,179,228);
+    color: #fff;
+}
+
+.chatbox__delete-btn {
+    background: url(assets/image/delete-icon.svg) no-repeat center;
+    background-size: 25px 25px;
+    width: 26px;
+    height: 26px;
+    border: none;
+    vertical-align: middle;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+/* message container scrollbar styles */
+
+.chatbox__msg-container::-webkit-scrollbar {
+    width: 7px;
+    cursor: pointer;
+}
+
+.chatbox__msg-container::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+}
+
+.chatbox__msg-container::-webkit-scrollbar-track-piece {
+    background-color: darkgray;
+}
+
+.chatbox__msg-container::-webkit-scrollbar-thumb,
+.chatbox__msg-container::-webkit-scrollbar-track-piece {
+    border-radius: 7px;
+    visibility: hidden;
+}
+
+
+.chatbox__msg-container:hover::-webkit-scrollbar-thumb,
+.chatbox__msg-container:hover::-webkit-scrollbar-track-piece {
+    visibility: visible;
+}
+
+
+/* main section styles */
+
+.content_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content_wrapper .main_heading {
+    text-align: center;
+    color: var(--greyish);
+    
+}
+
+.content_wrapper .add_chatbox {
+    display: block;
+    margin: 0 auto 20px;
+    background-color: var(--greyish);
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.chatboxes_container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* alertbox styles */
+
+.alertbox {
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    opacity: 0;
+    background-color: var(--greyish);
+    color: #fff;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.alertbox_wrapper {
+    width: max-content;
+    position: relative;
+    padding: 25px 25px 15px 25px;
+}
+
+.alertbox_wrapper .alertbox__close_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* animation class for alertBox */
+
+.alertbox--active {
+    pointer-events: auto;
+    animation: showAlert 2s ease 0s 1 forwards;
+}
+
+
+@keyframes showAlert {
+    0% {
+        transform: translate(-50% , -150%);
+        opacity: 0;
+    }
+    30%, 70% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50% , -150%);
+        opacity: 0;
+    }
+}
+
